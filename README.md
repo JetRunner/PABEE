@@ -9,7 +9,7 @@ If you use this code in your research, please cite our paper:
 ```bibtex
 @misc{zhou2020bert,
     title={BERT Loses Patience: Fast and Robust Inference with Early Exit},
-    author={Wangchunshu Zhou* and Canwen Xu* and Tao Ge and Julian McAuley and Ke Xu and Furu Wei},
+    author={Wangchunshu Zhou and Canwen Xu and Tao Ge and Julian McAuley and Ke Xu and Furu Wei},
     year={2020},
     eprint={2006.04152},
     archivePrefix={arXiv},
