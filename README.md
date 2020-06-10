@@ -2,6 +2,21 @@
 
 Code for the paper "BERT Loses Patience: Fast and Robust Inference with Early Exit".
 
+![PABEE](https://github.com/JetRunner/PABEE/raw/master/bert-loses-patience.png)
+
+## Citation
+If you use this code in your research, please cite our paper:
+```bibtex
+@misc{zhou2020bert,
+    title={BERT Loses Patience: Fast and Robust Inference with Early Exit},
+    author={Wangchunshu Zhou* and Canwen Xu* and Tao Ge and Julian McAuley and Ke Xu and Furu Wei},
+    year={2020},
+    eprint={2006.04152},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+```
+
 ## Requirement
 Our code is built on [huggingface/transformers](https://github.com/huggingface/transformers). To use our code, you must clone and install [huggingface/transformers](https://github.com/huggingface/transformers).
 
