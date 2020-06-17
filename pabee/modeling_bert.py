@@ -629,6 +629,11 @@ class BertModel(BertPreTrainedModel):
         self.inference_instances_num = 0
         self.inference_layers_num = 0
 
+        self.regression_threshold = 0
+
+    def set_regression_threshold(self, threshold):
+        self.regression_threshold = threshold
+
     def set_patience(self, patience):
         self.patience = patience
 
@@ -667,7 +672,8 @@ class BertModel(BertPreTrainedModel):
         encoder_hidden_states=None,
         encoder_attention_mask=None,
         output_dropout=None,
-        output_layers=None
+        output_layers=None,
+        regression=False
     ):
         r"""
     Return:
@@ -841,13 +847,22 @@ class BertModel(BertPreTrainedModel):
 
                 pooled_output = self.pooler(encoder_outputs)
                 logits = output_layers[i](pooled_output)
-                labels = logits.detach().argmax(dim=1)
-                if patient_result is not None:
-                    patient_labels = patient_result.detach().argmax(dim=1)
-                if (patient_result is not None) and torch.all(labels.eq(patient_labels)):
-                    patient_counter += 1
+                if regression:
+                    labels = logits.detach()
+                    if patient_result is not None:
+                        patient_labels = patient_result.detach()
+                    if (patient_result is not None) and torch.abs(patient_result - labels) < self.regression_threshold:
+                        patient_counter += 1
+                    else:
+                        patient_counter = 0
                 else:
-                    patient_counter = 0
+                    labels = logits.detach().argmax(dim=1)
+                    if patient_result is not None:
+                        patient_labels = patient_result.detach().argmax(dim=1)
+                    if (patient_result is not None) and torch.all(labels.eq(patient_labels)):
+                        patient_counter += 1
+                    else:
+                        patient_counter = 0
 
                 patient_result = logits
                 if patient_counter == self.patience:
@@ -1236,7 +1251,8 @@ class BertForSequenceClassification(BertPreTrainedModel):
             head_mask=head_mask,
             inputs_embeds=inputs_embeds,
             output_dropout=self.dropout,
-            output_layers=self.classifiers
+            output_layers=self.classifiers,
+            regression=self.num_labels == 1
         )
 
         outputs = (logits[-1],)

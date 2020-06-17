@@ -482,7 +482,12 @@ def main():
         type=str,
         required=False,
     )
-
+    parser.add_argument(
+        "--regression_threshold",
+        default=0,
+        type=float,
+        required=False,
+    )
     # Other parameters
     parser.add_argument(
         "--config_name", default="", type=str, help="Pretrained config name or path if not the same as model_name",
@@ -724,8 +729,10 @@ def main():
             print(f'Evaluation for checkpoint {prefix}')
             for patience in patience_list:
                 if args.model_type == 'albert':
+                    model.albert.set_regression_threshold(args.regression_threshold)
                     model.albert.set_patience(patience)
                 elif args.model_type == 'bert':
+                    model.bert.set_regression_threshold(args.regression_threshold)
                     model.bert.set_patience(patience)
                 else:
                     raise NotImplementedError()
