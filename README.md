@@ -4,6 +4,8 @@ Code for the paper "BERT Loses Patience: Fast and Robust Inference with Early Ex
 
 ![PABEE](https://github.com/JetRunner/PABEE/raw/master/bert-loses-patience.png)
 
+*NEWS: We now have [a better and tinier implementation](https://github.com/huggingface/transformers/tree/master/examples/bert-loses-patience) integrated into Hugging Face transformers!*
+
 ## Citation
 If you use this code in your research, please cite our paper:
 ```bibtex
