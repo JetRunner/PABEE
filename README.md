@@ -1,6 +1,6 @@
 # Patience-based Early Exit
 
-Code for the paper "BERT Loses Patience: Fast and Robust Inference with Early Exit".
+Code for the paper "[BERT Loses Patience: Fast and Robust Inference with Early Exit](https://arxiv.org/abs/2006.04152)".
 
 ![PABEE](https://github.com/JetRunner/PABEE/raw/master/bert-loses-patience.png)
 
