@@ -1,6 +1,6 @@
 # Patience-based Early Exit
 
-Code for the paper "[BERT Loses Patience: Fast and Robust Inference with Early Exit](https://arxiv.org/abs/2006.04152)".
+Code for the paper "[BERT Loses Patience: Fast and Robust Inference with Early Exit](https://proceedings.neurips.cc/paper/2020/file/d4dd111a4fd973394238aca5c05bebe3-Paper.pdf)".
 
 ![PABEE](https://github.com/JetRunner/PABEE/raw/master/bert-loses-patience.png)
 
@@ -9,13 +9,15 @@ Code for the paper "[BERT Loses Patience: Fast and Robust Inference with Early E
 ## Citation
 If you use this code in your research, please cite our paper:
 ```bibtex
-@misc{zhou2020bert,
-    title={BERT Loses Patience: Fast and Robust Inference with Early Exit},
-    author={Wangchunshu Zhou and Canwen Xu and Tao Ge and Julian McAuley and Ke Xu and Furu Wei},
-    year={2020},
-    eprint={2006.04152},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@inproceedings{zhou2020bert,
+ author = {Zhou, Wangchunshu and Xu, Canwen and Ge, Tao and McAuley, Julian and Xu, Ke and Wei, Furu},
+ booktitle = {Advances in Neural Information Processing Systems},
+ pages = {18330--18341},
+ publisher = {Curran Associates, Inc.},
+ title = {BERT Loses Patience: Fast and Robust Inference with Early Exit},
+ url = {https://proceedings.neurips.cc/paper/2020/file/d4dd111a4fd973394238aca5c05bebe3-Paper.pdf},
+ volume = {33},
+ year = {2020}
 }
 ```
 
